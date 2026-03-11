@@ -36,9 +36,44 @@ html, body, [data-testid="stAppViewContainer"], [data-testid="stApp"] {
 ::-webkit-scrollbar-track { background: #F2F0E8; }
 ::-webkit-scrollbar-thumb { background: #0A0A0A; }
 
-HEADER_HTML = (
-    '<div class="alphalens-header">'
-    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="52" height="52" style="flex-shrink:0">'
+st.markdown(
+    '<style>'
+    '.alphalens-header{'
+        'background:#0A0A0A;'
+        'padding:18px 40px;'
+        'border-bottom:3px solid #E8FF00;'
+        'display:flex;'
+        'align-items:center;'
+        'gap:20px;'
+        'position:fixed;'
+        'top:0;left:0;right:0;'
+        'z-index:999;'
+        'width:100%;'
+    '}'
+    '.al-logo{'
+        'font-family:"Arial Black",sans-serif;'
+        'font-size:32px;'
+        'font-weight:900;'
+        'color:#E8FF00;'
+        'letter-spacing:6px;'
+        'line-height:1;'
+    '}'
+    '.al-sub{'
+        'font-size:11px;'
+        'color:rgba(232,255,0,0.45);'
+        'letter-spacing:4px;'
+        'text-transform:uppercase;'
+        'border-left:2px solid rgba(232,255,0,0.2);'
+        'padding-left:20px;'
+        'font-family:monospace;'
+    '}'
+    '.main .block-container{padding-top:90px !important;}'
+    '</style>',
+    unsafe_allow_html=True
+)
+
+LOGO_SVG = (
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="44" height="44" style="flex-shrink:0">'
     '<defs>'
     '<clipPath id="sc"><circle cx="98" cy="98" r="76"/></clipPath>'
     '<linearGradient id="sg" x1="0%" y1="0%" x2="0%" y2="100%">'
@@ -46,32 +81,29 @@ HEADER_HTML = (
     '<stop offset="100%" stop-color="#E8FF00" stop-opacity="0"/>'
     '</linearGradient>'
     '</defs>'
-    '<circle cx="98" cy="98" r="90" fill="none" stroke="#E8FF00" stroke-width="1" opacity="0.1"/>'
     '<circle cx="98" cy="98" r="80" fill="none" stroke="#E8FF00" stroke-width="5"/>'
-    '<circle cx="98" cy="98" r="72" fill="none" stroke="#E8FF00" stroke-width="1" opacity="0.16"/>'
+    '<circle cx="98" cy="98" r="72" fill="none" stroke="#E8FF00" stroke-width="1" opacity="0.2"/>'
     '<g clip-path="url(#sc)">'
-    '<line x1="22" y1="138" x2="174" y2="138" stroke="#E8FF00" stroke-width="1" opacity="0.07"/>'
-    '<line x1="22" y1="114" x2="174" y2="114" stroke="#E8FF00" stroke-width="1" opacity="0.07"/>'
-    '<line x1="22" y1="90" x2="174" y2="90" stroke="#E8FF00" stroke-width="1" opacity="0.07"/>'
     '<polygon points="28,148 46,142 60,148 76,128 90,120 102,106 114,110 128,86 144,78 162,56 174,50 174,185 28,185" fill="url(#sg)"/>'
     '<polyline points="28,148 46,142 60,148 76,128 90,120 102,106 114,110 128,86 144,78 162,56 174,50"'
-    ' fill="none" stroke="#E8FF00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>'
-    '<circle cx="28" cy="148" r="3" fill="#E8FF00" opacity="0.45"/>'
-    '<circle cx="76" cy="128" r="3" fill="#E8FF00" opacity="0.45"/>'
-    '<circle cx="102" cy="106" r="3" fill="#E8FF00" opacity="0.45"/>'
-    '<circle cx="128" cy="86" r="3" fill="#E8FF00" opacity="0.45"/>'
-    '<circle cx="174" cy="50" r="5.5" fill="#E8FF00"/>'
-    '<circle cx="174" cy="50" r="9" fill="none" stroke="#E8FF00" stroke-width="1.5" opacity="0.35"/>'
+    ' fill="none" stroke="#E8FF00" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>'
+    '<circle cx="174" cy="50" r="6" fill="#E8FF00"/>'
+    '<circle cx="174" cy="50" r="10" fill="none" stroke="#E8FF00" stroke-width="1.5" opacity="0.4"/>'
     '</g>'
-    '<line x1="162" y1="162" x2="200" y2="200" stroke="#E8FF00" stroke-width="13" stroke-linecap="round"/>'
-    '<line x1="162" y1="162" x2="200" y2="200" stroke="#080808" stroke-width="4.5" stroke-linecap="round"/>'
+    '<line x1="162" y1="162" x2="200" y2="200" stroke="#E8FF00" stroke-width="12" stroke-linecap="round"/>'
+    '<line x1="162" y1="162" x2="200" y2="200" stroke="#0A0A0A" stroke-width="4" stroke-linecap="round"/>'
     '</svg>'
-    '<div class="al-logo">AlphaLens</div>'
-    '<div class="al-sub">Hall da Fama B3 &middot; Rankeie seu trade na historia da bolsa</div>'
-    '</div>'
 )
 
-st.markdown(HEADER_HTML, unsafe_allow_html=True)
+st.markdown(
+    '<div class="alphalens-header">'
+    + LOGO_SVG +
+    '<div class="al-logo">ALPHALENS</div>'
+    '<div class="al-sub">Hall da Fama B3 &middot; Rankeie seu trade na historia da bolsa</div>'
+    '</div>',
+    unsafe_allow_html=True
+)
+
 st.markdown("<br>", unsafe_allow_html=True)
 
 .alphalens-header {

@@ -277,9 +277,24 @@ with aba1:
                     fig2.add_trace(go.Scatter(x=preco_pos.index, y=preco_pos.values,
                                               name="Após sua venda",
                                               line=dict(color="#FF2200", width=2, dash="dash")))
-                    fig2.add_vline(x=str(preco_pos.index[0].date()),
-                                   line_color="rgba(255,255,255,0.4)", line_dash="dot",
-                                   annotation_text="VOCÊ SAIU", annotation_font_color="white")
+                    data_saida = preco_pos.index[0]
+
+                    fig2.add_shape(
+                        type="line",
+                        x0=data_saida, x1=data_saida,
+                        y0=0, y1=1,
+                        xref="x", yref="paper",
+                        line=dict(color="rgba(255,255,255,0.4)", dash="dot", width=1.5)
+                    )
+                    fig2.add_annotation(
+                        x=data_saida,
+                        y=1,
+                        xref="x", yref="paper",
+                        text="VOCÊ SAIU",
+                        showarrow=False,
+                        font=dict(color="white", size=11),
+                        yanchor="bottom"
+                    )
                     fig2.update_layout(paper_bgcolor="#0A0A0A", plot_bgcolor="#0A0A0A",
                                        font_color="#F2F0E8",
                                        legend=dict(bgcolor="rgba(0,0,0,0)"),
